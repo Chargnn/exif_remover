@@ -14,10 +14,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class App 
+public class App extends JFrame
 {
     static String path;
-    static JFrame frame = new JFrame();
     static JPanel panel = new JPanel();
     static File file;
     static String filefolder;
@@ -25,16 +24,16 @@ public class App
 
     public static void main( String[] args )
     {
-        initGui();
+        App app = new App();
+        app.initGui();
     }
 
     /**
      *  Creating / adding things to the panel
      *  with button listener
      */
-    public static void initGui() {
+    public void initGui() {
         panel = new JPanel();
-        frame = new JFrame();
         header = new JLabel(MessageString.SELECT_FILE);
 
         JButton removeButton = new JButton(MessageString.REMOVE_EXIF);
@@ -91,19 +90,19 @@ public class App
         panel.add(header);
         panel.add(selectFileButton);
         panel.add(removeButton);
-        frame.setContentPane(panel);
-        frame.pack();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        frame.setTitle("EXIF Remover (.jpg, .jpeg, .png)");
+        setContentPane(panel);
+        pack();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setVisible(true);
+        setTitle("EXIF Remover (.jpg, .jpeg, .png)");
     }
 
     /**
      * Remove any EXIF data from the seletec image
      * (basically, create a new empty image)
      */
-    public static void removeEXIF() {
+    public void removeEXIF() {
         if(path == null) {
             JOptionPane.showMessageDialog(null, MessageString.ERR_NO_SELECTION, "Error", JOptionPane.WARNING_MESSAGE);
         } else {
@@ -135,7 +134,7 @@ public class App
     /**
      * Read method name...
      */
-    public static void success() {
+    public void success() {
         header.setText(MessageString.SUCC_REMOVE);
         path = "";
         filefolder = "";
