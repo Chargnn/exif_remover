@@ -1,4 +1,4 @@
-package com.toat.image;
+package com.chargnn.image;
 
 import com.drew.imaging.ImageMetadataReader;
 import com.drew.metadata.Directory;

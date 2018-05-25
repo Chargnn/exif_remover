@@ -1,4 +1,4 @@
-package com.toat.image;
+package com.chargnn.image;
 
 import static org.junit.Assert.assertTrue;
 
